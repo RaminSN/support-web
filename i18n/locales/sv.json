@@ -1,0 +1,16 @@
+{
+  "app": {
+    "title": "Supportportalen"
+  },
+  "login": {
+    "title": "Välkommen tillbaka!",
+    "description": "Logga in på Supportportalen",
+    "provider": "Keycloak",
+    "footer": "Autentisering hanteras av din organisations identitetsleverantör."
+  },
+  "home": {
+    "welcome": "Välkommen, {name}",
+    "signedInVia": "Du är inloggad via {provider}",
+    "signOut": "Logga ut"
+  }
+}
