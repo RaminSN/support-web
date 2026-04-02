@@ -1,10 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
-const keycloakBaseUrl = process.env.NUXT_KEYCLOAK_BASE_URL;
-const keycloakRealm = process.env.NUXT_KEYCLOAK_REALM;
-const keycloakOidc = `${keycloakBaseUrl}/realms/${keycloakRealm}/protocol/openid-connect`;
-const appBaseUrl = process.env.NUXT_PUBLIC_APP_BASE_URL;
-
 export default defineNuxtConfig({
   modules: ["@nuxt/eslint", "@nuxt/ui", "nuxt-oidc-auth", "@nuxtjs/i18n"],
 
@@ -20,15 +13,12 @@ export default defineNuxtConfig({
     defaultProvider: "keycloak",
     providers: {
       keycloak: {
-        baseUrl: `${keycloakBaseUrl}/realms/${keycloakRealm}`,
-        clientId: process.env.NUXT_OIDC_PROVIDERS_KEYCLOAK_CLIENT_ID,
-        authenticationScheme: "none",
-        authorizationUrl: `${keycloakOidc}/auth`,
-        tokenUrl: `${keycloakOidc}/token`,
-        userInfoUrl: `${keycloakOidc}/userinfo`,
-        redirectUri: `${appBaseUrl}/auth/keycloak/callback`,
-        logoutRedirectUri:
-          process.env.NUXT_OIDC_PROVIDERS_KEYCLOAK_LOGOUT_REDIRECT_URI,
+        baseUrl: "",
+        clientId: "",
+        clientSecret: "",
+        authenticationScheme: "body",
+        redirectUri: "",
+        logoutRedirectUri: "",
         scope: ["openid", "profile", "email"],
         pkce: true,
         state: true,

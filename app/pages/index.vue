@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { user, logout } = useOidcAuth();
+const { user, logout, currentProvider } = useOidcAuth();
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const { user, logout } = useOidcAuth();
           color="neutral"
           variant="outline"
           icon="i-lucide-log-out"
-          @click="logout('keycloak')"
+          @click="logout(currentProvider)"
         >
           {{ $t("home.signOut") }}
         </UButton>

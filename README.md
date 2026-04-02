@@ -30,16 +30,17 @@ cp .env.example .env
 
 | Variable | Required | Description |
 |---|---|---|
-| `NUXT_KEYCLOAK_BASE_URL` | Yes | Keycloak server URL (e.g. `https://auth.example.com`) |
-| `NUXT_KEYCLOAK_REALM` | Yes | Keycloak realm name |
-| `NUXT_OIDC_PROVIDERS_KEYCLOAK_CLIENT_ID` | Yes | Client ID of your Keycloak public client |
+| `NUXT_OIDC_PROVIDERS_KEYCLOAK_BASE_URL` | Yes | Keycloak realm URL (e.g. `https://auth.example.com/realms/myrealm`) |
+| `NUXT_OIDC_PROVIDERS_KEYCLOAK_CLIENT_ID` | Yes | Client ID of your Keycloak client |
+| `NUXT_OIDC_PROVIDERS_KEYCLOAK_CLIENT_SECRET` | Yes | Client secret from Keycloak |
+| `NUXT_OIDC_PROVIDERS_KEYCLOAK_REDIRECT_URI` | Yes | OAuth callback URL (e.g. `http://localhost:3000/auth/keycloak/callback`) |
+| `NUXT_OIDC_PROVIDERS_KEYCLOAK_LOGOUT_REDIRECT_URI` | Yes | URL to redirect to after logout (e.g. `http://localhost:3000/login`) |
 | `NUXT_OIDC_SESSION_SECRET` | Yes | Session encryption secret (min 48 characters). Generate with `openssl rand -base64 48` |
 | `NUXT_PUBLIC_APP_BASE_URL` | Yes | Public URL of this app (e.g. `http://localhost:3000`) |
-| `NUXT_OIDC_PROVIDERS_KEYCLOAK_LOGOUT_REDIRECT_URI` | Yes | URL to redirect to after logout (e.g. `http://localhost:3000/login`) |
 
 ### Keycloak client configuration
 
-1. Create a new client with **Client authentication** set to **OFF** (public client)
+1. Create a new client with **Client authentication** set to **ON** (confidential client)
 2. Set **Valid Redirect URIs** to `<APP_BASE_URL>/auth/keycloak/callback`
 3. Set **Valid Post Logout Redirect URIs** to `<APP_BASE_URL>/login`
 4. Set **Web Origins** to your app's base URL
