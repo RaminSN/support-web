@@ -5,11 +5,11 @@ const items = computed(() =>
   locales.value.map((l) => ({
     label: typeof l === "string" ? l : l.name,
     value: typeof l === "string" ? l : l.code,
-  }))
+  })),
 );
 
 const current = computed(() =>
-  items.value.find((i) => i.value === locale.value)
+  items.value.find((i) => i.value === locale.value),
 );
 </script>
 
@@ -20,7 +20,7 @@ const current = computed(() =>
     <UButton
       color="neutral"
       variant="ghost"
-      icon="i-lucide-languages"
+      icon="i-lucide-globe"
       :label="current?.label"
     />
   </UDropdownMenu>

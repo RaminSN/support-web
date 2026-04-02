@@ -31,6 +31,7 @@ export default defineNuxtConfig({
         state: true,
         nonce: true,
         userNameClaim: "preferred_username",
+        exposeAccessToken: true,
       },
     },
     middleware: {
