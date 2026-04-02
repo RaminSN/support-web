@@ -7,7 +7,7 @@ definePageMeta({
 });
 
 const { t } = useI18n();
-const { loggedIn, login } = useOidcAuth();
+const { loggedIn, login, currentProvider } = useOidcAuth();
 
 if (loggedIn.value) {
   navigateTo("/");
@@ -22,7 +22,7 @@ const providers = computed(() => [
     loading: loading.value,
     onClick: async () => {
       loading.value = true;
-      await login("keycloak");
+      await login(currentProvider.value);
     },
   },
 ]);
