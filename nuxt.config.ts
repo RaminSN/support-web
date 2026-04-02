@@ -20,12 +20,15 @@ export default defineNuxtConfig({
     defaultProvider: "keycloak",
     providers: {
       keycloak: {
-        clientId: process.env.NUXT_OIDC_PROVIDERS_KEYCLOAK_CLIENT_ID || "",
+        baseUrl: `${keycloakBaseUrl}/realms/${keycloakRealm}`,
+        clientId: process.env.NUXT_OIDC_PROVIDERS_KEYCLOAK_CLIENT_ID,
         authenticationScheme: "none",
         authorizationUrl: `${keycloakOidc}/auth`,
         tokenUrl: `${keycloakOidc}/token`,
         userInfoUrl: `${keycloakOidc}/userinfo`,
         redirectUri: `${appBaseUrl}/auth/keycloak/callback`,
+        logoutRedirectUri:
+          process.env.NUXT_OIDC_PROVIDERS_KEYCLOAK_LOGOUT_REDIRECT_URI,
         scope: ["openid", "profile", "email"],
         pkce: true,
         state: true,
