@@ -35,7 +35,7 @@ cp .env.example .env
 | `NUXT_OIDC_PROVIDERS_KEYCLOAK_CLIENT_ID` | Yes | Client ID of your Keycloak public client |
 | `NUXT_OIDC_SESSION_SECRET` | Yes | Session encryption secret (min 48 characters). Generate with `openssl rand -base64 48` |
 | `NUXT_PUBLIC_APP_BASE_URL` | Yes | Public URL of this app (e.g. `http://localhost:3000`) |
-| `NUXT_OIDC_PROVIDERS_KEYCLOAK_LOGOUT_REDIRECT_URI` | No | URL to redirect to after logout (defaults to `<APP_BASE_URL>/login`) |
+| `NUXT_OIDC_PROVIDERS_KEYCLOAK_LOGOUT_REDIRECT_URI` | Yes | URL to redirect to after logout (e.g. `http://localhost:3000/login`) |
 
 ### Keycloak client configuration
 
